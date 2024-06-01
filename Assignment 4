@@ -1,0 +1,89 @@
+	9. a) Write a Java program to demonstrate the need for servlets in web development. Create a simple servlet that prints "Hello World" to the browser when accessed.
+
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/HelloWorldServlet")
+public class HelloWorldServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Hello World Servlet</title>");
+        out.println("</head>");
+        out.println("<body>");
+        out.println("<h1>Hello World!</h1>");
+        out.println("<p>This is a simple servlet example.</p>");
+        out.println("</body>");
+        out.println("</html>");
+    }
+}
+
+
+
+
+ b) Write a PHP script that connects to a MySQL server and lists all available databases and their respective table names.
+
+<?php
+
+$servername = "localhost";
+$username = "your_username";
+$password = "your_password";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// List all available databases
+$result = $conn->query("SHOW DATABASES");
+
+if ($result->num_rows > 0) {
+    echo "<h2>Databases and Tables:</h2>";
+    while ($row = $result->fetch_assoc()) {
+        $databaseName = $row["Database"];
+        echo "<h3>$databaseName</h3>";
+        
+        // Connect to the database
+        $dbConn = new mysqli($servername, $username, $password, $databaseName);
+        if ($dbConn->connect_error) {
+            die("Connection to database $databaseName failed: " . $dbConn->connect_error);
+        }
+        
+        // List all tables in the database
+        $tableResult = $dbConn->query("SHOW TABLES");
+        if ($tableResult->num_rows > 0) {
+            echo "<ul>";
+            while ($tableRow = $tableResult->fetch_assoc()) {
+                $tableName = $tableRow["Tables_in_$databaseName"];
+                echo "<li>$tableName</li>";
+            }
+            echo "</ul>";
+        } else {
+            echo "No tables found in database $databaseName";
+        }
+        $dbConn->close();
+    }
+} else {
+    echo "No databases found";
+}
+
+$conn->close();
+
+?>
+
