@@ -1,0 +1,46 @@
+ Build a pricing table with multiple subscription plans and highlight the recommended plan.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Table</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="pricing-table">
+        <div class="pricing-plan">
+            <h2>Basic</h2>
+            <p class="price">$9.99/month</p>
+            <ul>
+                <li>10 Projects</li>
+                <li>5 GB Storage</li>
+                <li>Email Support</li>
+            </ul>
+            <button>Sign Up</button>
+        </div>
+        <div class="pricing-plan recommended">
+            <h2>Pro</h2>
+            <p class="price">$19.99/month</p>
+            <ul>
+                <li>Unlimited Projects</li>
+                <li>50 GB Storage</li>
+                <li>Priority Email Support</li>
+            </ul>
+            <button>Sign Up</button>
+            <span class="recommended-badge">Recommended</span>
+        </div>
+        <div class="pricing-plan">
+            <h2>Enterprise</h2>
+            <p class="price">$49.99/month</p>
+            <ul>
+                <li>Unlimited Projects</li>
+                <li>200 GB Storage</li>
+                <li>Phone & Email Support</li>
+            </ul>
+            <button>Sign Up</button>
+        </div>
+    </div>
+</body>
+</html>
