@@ -1,0 +1,29 @@
+	Develop a button that shows or hides a specific element when clicked. For example, clicking the button should toggle the visibility of a paragraph or a div on the webpage.
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show/Hide Button Example</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Show/Hide Example</h1>
+    <button id="toggleBtn">Toggle Paragraph</button>
+    <p id="paragraph" class="hidden">This is a paragraph that will be shown or hidden.</p>
+    <script src="script.js"></script>
+</body>
+</html>
+
+const toggleBtn = document.getElementById("toggleBtn");
+const paragraph = document.getElementById("paragraph");
+
+toggleBtn.addEventListener("click", function() {
+    paragraph.classList.toggle("hidden");
+});
+
+.hidden {
+    display: none;
+}
